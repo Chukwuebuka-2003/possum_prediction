@@ -1,2 +1,2 @@
-pickle
+gunicorn
 flask
