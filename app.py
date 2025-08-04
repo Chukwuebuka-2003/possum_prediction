@@ -11,13 +11,13 @@ with open('possum.sav', 'rb') as model_file:
 def predict():
     data = request.json
 
-    required_params = ['skullw', 'totlngth', 'footlngth', 'belly', 'chest', 'eye', 'age']
+    required_params = ['case', 'site', 'age', 'hdlngth', 'totlngth', 'footlgth', 'chest']
     if not all(param in data for param in required_params):
         return jsonify({'error': 'Missing required parameters'})
 
     # Perform prediction using the loaded model
     try:
-        prediction = model.predict([[data['skullw'], data['totlngth'], data['footlngth'], data['belly'], data['chest'], data['eye'], data['age']]])
+        prediction = model.predict([[data['case'], data['site'], data['age'], data['hdlngth'], data['totlngth'], data['footlgth'], data['chest']]])
         # Return prediction as part of response
         return jsonify({'prediction': float(prediction[0])})
     except Exception as e:
