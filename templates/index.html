@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Possum Chest Predictor</title>
+</head>
+<body>
+    <h2>Enter Possum Measurements</h2>
+    <form method="post">
+        <label>Head Length:</label><input type="text" name="hdlngth" required><br>
+        <label>Skull Width:</label><input type="text" name="skullw" required><br>
+        <label>Total Length:</label><input type="text" name="totlngth" required><br>
+        <label>Tail Length:</label><input type="text" name="taill" required><br>
+        <label>Foot Length:</label><input type="text" name="footlgth" required><br>
+        <label>hdlngth:</label><input type="text" name="hdlngth" required><br>
+        <label>Eye:</label><input type="text" name="eye" required><br>
+        <label>Age:</label><input type="text" name="age" required><br><br>
+        <input type="submit" value="Predict belly">
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Predicted belly Size: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
